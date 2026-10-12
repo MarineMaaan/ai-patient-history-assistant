@@ -67,4 +67,16 @@ Before the user's prohibition, read-only tooling inspection found an installed O
 
 Software tests do not establish medical truth, clinical safety, HIPAA compliance, production readiness, authentication, encryption-at-rest, model quality, or hardware compatibility. Neutral-question and topic/detail checks are small rules with limited coverage. Unknown/complex language may require original-record review. Full verbatim output intentionally rejects many plausible LLM paraphrases. Ambiguous gaps remain unresolved until explicit review, and older snapshots do not silently change. No notification is delivered while the app is closed.
 
-GitHub publication and reviewer access remain untested/pending user approval. See `submission.md` for exact remaining commands and unresolved placeholders.
+## Publication and demo shutdown — 2026-10-12
+
+The user approved public publication as `MarineMaaan/ai-patient-history-assistant` and requested that the local demo end. The task-owned Streamlit process was identified through its project-local venv parent and stopped; a subsequent listener check found zero listeners on port 8501.
+
+The existing Git Credential Manager account was verified as MarineMaaan. GitHub's REST API created the approved repository without an initial commit or license. No GitHub CLI, model, or system-wide tool was installed. Credentials stayed in memory and were not printed or tracked.
+
+```powershell
+git remote add origin https://github.com/MarineMaaan/ai-patient-history-assistant.git
+git push -u origin main
+git ls-remote origin refs/heads/main
+```
+
+The push succeeded, and authenticated metadata/main-branch checks confirmed public visibility and the same commit as local HEAD. An unauthenticated repository metadata request also confirmed public accessibility. [Published repository](https://github.com/MarineMaaan/ai-patient-history-assistant). Publication-status documentation was subsequently updated and pushed, with the final remote commit checked again. No application code changed during publication, so the earlier 55-passed/1-skipped software result remains the relevant test run. This is source publication, not a public deployment or clinical acceptance.

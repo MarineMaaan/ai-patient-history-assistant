@@ -1,44 +1,29 @@
 # Assignment and GitHub handoff
 
-The assignment submission is the **actual GitHub repository URL containing the commented source code**. Submit that URL once publication is authorized and verified. Additional architecture, research, demonstration and test documents support review; they are not represented as explicitly required by the instructor.
+Submit this **actual public GitHub repository URL containing the commented source code**:
 
-The local repository is on `main`, with no remote configured at creation. Source, synthetic fixtures, version-pinned dependencies and documentation are tracked. Runtime data/configuration, virtual environment, SQLite sidecars, logs/exports, caches and weights remain ignored. No license was added or granted. Use `git log --oneline -2` and `git status --short` to inspect the delivered commits/state.
+[https://github.com/MarineMaaan/ai-patient-history-assistant](https://github.com/MarineMaaan/ai-patient-history-assistant)
 
-## Remaining approval and tooling
+Publication under **MarineMaaan**, repository name **ai-patient-history-assistant**, and **public** visibility was explicitly approved on 2026-10-12. The repository was created through GitHub's REST API using the existing Git Credential Manager authentication, then pushed with Git. GitHub CLI was not installed. The authenticated account was checked before creation; credential values were kept in memory and never printed or tracked. No global configuration was changed.
 
-Publication requires the user's approved **GitHub owner/account**, **repository name**, and **public/private visibility**. These choices remain unresolved; no repository has been published and there is no GitHub URL yet. GitHub CLI (`gh`) was not available on this machine during inspection. Installing system-wide tooling requires separate approval. Existing authenticated tooling can be used when authorized; do not print credentials or invent a remote URL.
+Local branch `main` tracks `origin/main` at `https://github.com/MarineMaaan/ai-patient-history-assistant.git`. GitHub metadata confirmed public visibility and main as the default branch; remote main was checked against local HEAD after the push. An unauthenticated metadata request also confirmed public accessibility. The running local demonstration server was stopped at the user's request.
 
-## Prepared commands — only after approval
-
-Run from the project root. Replace `<OWNER>` and `<REPOSITORY>` with approved values and choose exactly one visibility flag. The placeholders are unresolved. These commands assume GitHub CLI is available and authenticated in the correct account:
-
-```powershell
-gh auth status
-git remote -v
-git status --short
-git ls-files
-git diff --cached --stat
-# Choose --private OR --public according to explicit approval.
-gh repo create <OWNER>/<REPOSITORY> --private --source . --remote origin --push
-gh repo view <OWNER>/<REPOSITORY> --json url,visibility
-git rev-parse HEAD
-git ls-remote origin refs/heads/main
-```
-
-Compare remote main's hash to local HEAD before reporting success. Obtain the actual repository URL from `gh repo view`; do not construct it from a guessed username. If a remote now exists, preserve it and inspect it before using `--remote origin`; do not replace or delete it. Never force-push or rewrite user history. Recheck tracked and staged content for credentials and runtime data before any push; `.gitignore` does not remove already-tracked files.
-
-If CLI installation is unavailable, the user may create an **empty** repository in the approved account through GitHub's UI, then provide its actual clone URL. With that authorized URL, preserving existing remotes:
-
-```powershell
-git remote -v
-git remote add origin <ACTUAL_APPROVED_CLONE_URL>
-git push -u origin main
-git rev-parse HEAD
-git ls-remote origin refs/heads/main
-```
-
-Create it without adding a README, license, or `.gitignore` to avoid unrelated history conflicts. The second path assumes origin is absent; use a separate approved remote name if it already exists.
+The assignment submission is the repository URL above. Additional architecture, research, demonstration and test documents support review; they are not represented as explicitly required by the instructor. Source, synthetic fixtures, version-pinned dependencies and documentation are tracked. Runtime data/configuration, the virtual environment, SQLite sidecars, logs/exports, caches, the task-local publication helper, and weights remain ignored. No license was added or granted.
 
 ## Reviewer access
 
-A public repository can be opened by the reviewer using the verified URL. A private repository needs a user-approved reviewer-access arrangement. Do not invite people or change visibility without approval. Confirm that the intended reviewer can access the submitted URL and see commented source; an inaccessible private URL is not a complete handoff.
+The repository is public; reviewers can open the URL and inspect the commented source without a private-repository invitation. Individual instructor access has not been separately exercised. This publishes source only: the Streamlit application has not been deployed, exposed remotely, or given external notifications.
+
+## Inspect and update
+
+From this project directory:
+
+```powershell
+git status --short
+git remote -v
+git log --oneline -3
+git rev-parse HEAD
+git ls-remote origin refs/heads/main
+```
+
+For future authorized source updates, run relevant tests, inspect intended diffs, stage explicit paths, and run `.\.venv\Scripts\python.exe scripts/audit_repository.py` before committing/pushing. Push with `git push origin main`, then compare remote main's hash with local HEAD. `.gitignore` does not remove previously tracked files. Preserve remotes; never force-push or rewrite user history. Changing repository visibility, inviting reviewers, granting a license, or deploying a live application requires separate authorization.
