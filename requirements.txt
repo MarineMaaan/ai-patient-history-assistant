@@ -1,0 +1,2 @@
+# Exact tested dependencies, including transitive packages.
+-r requirements-lock.txt

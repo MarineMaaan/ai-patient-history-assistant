@@ -1,0 +1,6 @@
+# Copy to local/config.toml; runtime configuration stays ignored.
+mode = "offline"
+ollama_endpoint = "http://127.0.0.1:11434"
+# Set an EXACT installed local model tag yourself. No model is downloaded.
+ollama_model = ""
+timeout_seconds = 30

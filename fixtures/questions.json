@@ -1,0 +1,8 @@
+[
+  {"id":"conditions","topic":"conditions","question":"What medical conditions, if any, have you previously been told you have?"},
+  {"id":"medications","topic":"medications","question":"What medications, if any, do you report taking?"},
+  {"id":"allergies","topic":"allergies","question":"What allergies or reactions, if any, have you experienced?"},
+  {"id":"procedures","topic":"procedures","question":"What previous procedures or surgeries, if any, do you remember?"},
+  {"id":"family","topic":"family","question":"What relevant family medical history, if any, would you like to report?"},
+  {"id":"changes","topic":"changes","question":"What, if anything, has changed since your previous interview?"}
+]
